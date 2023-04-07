@@ -471,46 +471,46 @@ textarea {
 }
 
 /* Підключення шрифтів за допомогою google fonts helper */
-/* lato-regular - latin_latin-ext */
+/* lato-regular - latin */
 @font-face {
   font-display: swap;
   /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: 'Lato';
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/lato-v23-latin_latin-ext-regular.woff2') format('woff2'),
+  src: url('../fonts/lato-v23-latin-regular.woff2') format('woff2'),
     /* Chrome 36+, Opera 23+, Firefox 39+ */
-    url('../fonts/lato-v23-latin_latin-ext-regular.woff') format('woff');
+    url('../fonts/lato-v23-latin-regular.woff') format('woff');
   /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
-/* lato-700 - latin_latin-ext */
+/* lato-700 - latin */
 @font-face {
   font-display: swap;
   /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: 'Lato';
   font-style: normal;
   font-weight: 700;
-  src: url('../fonts/lato-v23-latin_latin-ext-700.woff2') format('woff2'),
+  src: url('../fonts/lato-v23-latin-700.woff2') format('woff2'),
     /* Chrome 36+, Opera 23+, Firefox 39+ */
-    url('../fonts/lato-v23-latin_latin-ext-700.woff') format('woff');
+    url('../fonts/lato-v23-latin-700.woff') format('woff');
   /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
-/* lato-900 - latin_latin-ext */
+/* lato-900 - latin */
 @font-face {
   font-display: swap;
   /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: 'Lato';
   font-style: normal;
   font-weight: 900;
-  src: url('../fonts/lato-v23-latin_latin-ext-900.woff2') format('woff2'),
+  src: url('../fonts/lato-v23-latin-900.woff2') format('woff2'),
     /* Chrome 36+, Opera 23+, Firefox 39+ */
-    url('../fonts/lato-v23-latin_latin-ext-900.woff') format('woff');
+    url('../fonts/lato-v23-latin-900.woff') format('woff');
   /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
-/* Правильний сросіб підключення border-box який не позначається на продуктивності*/
+/* Правильний сросіб підключення box-sizing:border-box який не позначається на продуктивності. box-sizing: це модуль розрахунку розміру блоку*/
 html {
   box-sizing: border-box;
 }
@@ -521,9 +521,9 @@ html {
   box-sizing: inherit;
 }
 
-/* Базові стилі для body */
+/* Базові стилі для body створюються для того, щоб від нього можна було успадкувати всім іншим елементам якісь певні стилі (зазвичай це шрифт) */
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Lato', Verdana, sans-serif;
   font-style: normal;
   font-size: 16px;
   line-height: 1.2;
@@ -536,21 +536,25 @@ body {
 /* Блок для обмеження по ширині (для контенту) */
 .wrapper {
   max-width: 1060px;
+  /*властивість що вирівнює wrapper всередині його батьківського елемента по центру*/
   margin: 0 auto;
 }
 
 /* Header styles start */
 
 .header {
+  /* Щоб зафіксувати любий елемент всередині екрану (в області перегляду) + координати як ми фіксуємо top/left */
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
 }
 
+/* Тепер header не бере участі у загальному потоці елементів */
+
 .header__wrapper {
   display: flex;
-  /* flex-wrap: wrap; відповідає за перенесення контетнту на інший рядок  */
+  /* flex-wrap: wrap; відповідає за перенесення контетнту на інший рядок. Коли рядок повінстю заповнюється елементами і якщо не вказати flex-wrap: wrap вони почнуть залазити один на одного і не зможуть за жодних умов пернестись на інший рядок  */
   flex-wrap: wrap;
   align-items: flex-end;
   justify-content: space-between;
@@ -566,6 +570,7 @@ body {
   margin-right: 82px;
 }
 
+/* обнулення відступу останнього дочірнього елемента */
 .header__item:last-child {
   margin-right: 0;
 }
@@ -577,9 +582,12 @@ body {
   text-decoration: none;
 }
 
+/* Styling hyper links. What matters here is that these four states are always defined in this exact order */
+
+.header__link:visited,
 .header__link:hover,
-.header__link:focus,
-.header__link:active {
+.header__link:active,
+.header__link:focus {
   opacity: .75;
 }
 
@@ -619,7 +627,7 @@ body {
 
 .search-form__field {
   width: 297px;
-  background: transparent url(/img/svg/circle-ico.svg) no-repeat left 6px;
+  background: transparent url(../img/svg/circle-ico.svg) no-repeat left 6px;
   background-size: 20px;
   border: 0;
   border-bottom: 2px solid #BFC0C5;
