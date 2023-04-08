@@ -531,6 +531,12 @@ body {
   color: #102746;
 }
 
+/* Для того, щоб зображення ніколи не перевущувало розміру контейнера в якому воно знаходиться. І щоб воно завжди пропорційно стискалось по висоті */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 
 
 /* Блок для обмеження по ширині (для контенту) */
@@ -538,6 +544,31 @@ body {
   max-width: 1060px;
   /*властивість що вирівнює wrapper всередині його батьківського елемента по центру*/
   margin: 0 auto;
+}
+
+.wrapper-full {
+  max-width: 1262px;
+  margin: 0 auto;
+}
+
+/* створимо нижнє підкреслення за допомогою псевдоелемента. Для того щоб його позиціонувати абсолютно робимо position relative на його батьківському елементі */
+.section-title {
+  font-weight: 500;
+  font-size: 35px;
+  line-height: 42px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.section-title::after {
+  display: block;
+  content: '';
+  width: 253px;
+  height: 3px;
+  background-color: #006DFE;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
 /* Header styles start */
@@ -600,6 +631,7 @@ body {
   background: url(/img/intro-bg.jpg) no-repeat center;
   background-size: cover;
   padding-top: 263px;
+  padding-bottom: 223px;
 }
 
 .intro__tittle {
@@ -663,3 +695,204 @@ body {
 }
 
 /* Intro styles end */
+
+/* Benefits styles start */
+.benefits__wrap {
+  max-width: 1262px;
+  margin: 0 auto;
+  background-color: #FFFFFF;
+  box-shadow: 0px 2px 20px rgba(21, 24, 36, 0.15993);
+  position: relative;
+}
+
+/* Позиціонуємо наш тайтл абсолютно. Для цього необхідно вкзати для батьківського елемента position relative */
+/* Змістимо елемент вгору по осі У на 100% його власної висоти transform: translateY(-100%);*/
+.benefits {
+  margin-bottom: 131px;
+}
+
+.benefits__title {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-100%);
+  background-color: #fff;
+  font-weight: 500;
+  font-size: 35px;
+  padding: 93px 100px 88px;
+  /* line-height: 42px; */
+}
+
+.benefits__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 55px;
+  padding: 0 100px;
+
+}
+
+/* Задамо ширину для benefit__card явним образом. grid-column: span 1; таким чином наші карточки будуть займати по одній колонці*/
+.benefit__card {
+  grid-column: span 1;
+  margin-bottom: 112px;
+}
+
+.benefits__card-pic {
+  max-width: 66px;
+  margin-bottom: 37px;
+}
+
+/* Якщо ми додаємо img на сторінку навіть якщо це svg, у неї завжди є відступ знизу, щоб пофіксити його необхідно зробити контейнер флексом, або зробити для цієї svg display: block */
+.benefits__card-thumb {
+  display: block;
+}
+
+.benefits__card-title {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 26px;
+}
+
+.benefits__card-desc {
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 39px;
+}
+
+/* Щоб додати стрілку до нашого лінку є 2 варіанти. 
+1. лінк зробимо display: inline-block, створимо padding щоб можна було розмістити стрілку і вкажемо в якості background цю стрілку. також можна було вказати її через псевдоелемнти;*/
+.benefits__card-more {
+  display: inline-block;
+  padding-right: 59px;
+  font-size: 16px;
+  line-height: 24px;
+  color: #006DFE;
+  text-decoration: none;
+  background: url("../img/svg/arrow-right-ico.svg") no-repeat 95% center;
+  transition: all .2s;
+}
+
+.benefits__card-more:hover,
+.benefits__card-more:focus {
+  background: url("../img/svg/arrow-right-ico.svg") no-repeat right center;
+}
+
+/* Benefits styles end */
+
+
+/* Places styles start */
+
+.places {
+  margin-bottom: 131px;
+}
+
+/* Заголовок є блочним, а лінк є рядковим елементом. для того щоб вони розмістилися в одному рядку необхідно задати дісплей флекс для контейнера places captions */
+.places__caption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 36px;
+}
+
+/* Відступ, для того щоб коли елементи зблизяться між ними залишився якийсь відступ */
+.places__title {
+  margin-right: 15px;
+}
+
+
+.places__view-all {
+  font-size: 16px;
+  padding-right: 59px;
+  color: #006DFE;
+  text-decoration: none;
+  background: url("../img/svg/arrow-right-ico.svg") no-repeat right center;
+  transition: all .2s;
+}
+
+.places__view-all:hover,
+.places__view-all:focus {
+  opacity: .65;
+
+}
+
+/* Для обгортки Зробимо grid контейнер і розділити його на якусь к-сть колонок (в даному випадку к-сть колонок має ділится і на 2 і на 3) */
+.places__cards {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 10px;
+}
+
+/* зробимо overlay слой */
+.places__card {
+  position: relative;
+  /* щобб зображення не вилазили один на одного overflow: hidden;*/
+  overflow: hidden;
+}
+
+.places__card::after {
+  display: block;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: rgba(21, 24, 36, 0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+/* ефект hover змінувати розмір наших картинок */
+.places__card:hover .places__card-pic {
+  transform: scale(1.05);
+
+}
+
+.places__card-title {
+  font-size: 50px;
+  line-height: 60px;
+  color: #FFFFFF;
+  position: absolute;
+  bottom: 27px;
+  left: 29px;
+  z-index: 3;
+}
+
+/* по цьому модифікатору прописуємо стилі для великих карток */
+.places__card--size--lg {
+  grid-column: span 3;
+}
+
+.places__card--size--sm {
+  grid-column: span 2;
+}
+
+/* Для картинки жорстко кодуємо висоту height , а властивість object-fit:  каже як зоброження буде масштабуватись всередині контейнера*/
+.places__card-pic {
+  width: 100%;
+  transition: all .15s;
+}
+
+.places__card-pic--size--lg {
+  height: 354px;
+  object-fit: cover;
+}
+
+.places__card-pic--size--sm {
+  height: 283px;
+  object-fit: cover;
+}
+
+/* Дана силка має бути поверх всього абсолютного контенту і поверх title і поверх затіняючого фону */
+.places__card-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+}
+
+/* Places styles end */
