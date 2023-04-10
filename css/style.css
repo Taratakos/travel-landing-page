@@ -579,6 +579,13 @@ img {
   top: 0;
   left: 0;
   width: 100%;
+  transition: all .3s linear;
+  padding-bottom: 20px;
+  z-index: 999;
+}
+
+.header_active {
+  background: #0E1D28;
 }
 
 /* Тепер header не бере участі у загальному потоці елементів */
@@ -944,3 +951,127 @@ img {
 
 
 /* Tours styles end */
+
+/* Top places styles start */
+.top {
+  margin-bottom: 86px;
+}
+
+.top__title {
+  margin-bottom: 64px;
+}
+
+.top__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 57px;
+}
+
+/* Задаємо другу вісь розподілу елементів flex-direction: column.*/
+.top__card {
+  display: flex;
+  flex-direction: column;
+
+}
+
+/* Тому, що відносно цього блоку ми будемо позиціонувати блок зі статами */
+.top__card-pic {
+  position: relative;
+  margin-bottom: 45px;
+}
+
+.top__card-stats {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(21, 24, 36, 0.6);
+  padding: 16px 25px;
+}
+
+/* Змістимо наш заголовок за допомогою margin, flex дозволяють зміщувати елементи за допомогою автопозиціонування margin */
+.top__card-title {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: #fff;
+  margin: 0 auto 0 0;
+}
+
+/* Іконкка займає 16px по ширині і 4px від елемента likes. Тому зправа робимо місце на 20px щоб розмістити там bacground іконки. Іконку можна встановити і через псевдоелемент */
+.top__card-likes {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #FFFFFF;
+  padding-right: 20px;
+  background: url("../img/svg/heart-ico.svg") no-repeat right;
+  margin-right: 14px;
+}
+
+.top__card-comments {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #FFFFFF;
+  padding-right: 23px;
+  background: url("../img/svg/comment-ico.svg") no-repeat right;
+}
+
+.top__card-desc {
+  font-size: 16px;
+  line-height: 24px;
+  color: #102746;
+  margin-bottom: 31px;
+}
+
+.top__card-more {
+  /* обмежимо лінки по ширині */
+  width: 118px;
+  padding: 12px 19px;
+  text-decoration: none;
+  background: #1B7DFF;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  font-size: 16px;
+  /* Лінк прибється до нижньої частини картки, тому що зверху margin буде розраховуватися автоматично. І в flex він розраховується так, що він прибиває до ПРОТИЛЕЖНОЇ сторони даний елемент */
+  margin: auto 0 0 0;
+}
+
+.top__card-more:hover,
+.top__card-more:active,
+.top__card-more:focus {
+  background-color: #0e66da;
+}
+
+/* Top places styles end */
+
+/* Videos styles start */
+.videos {
+  width: 100%
+}
+
+.videos__wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* хак. Отримали брок розтягнутий по висоті. Його ширина 1440 і така ж висота padding top = 1440. - завжди розраховується від ширини блока. Отримаємо адаптивний квадрат */
+.video__item {
+  padding-top: 56.25%;
+}
+
+.video__element {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Videos styles end */
