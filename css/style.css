@@ -1,7 +1,12 @@
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0-modified | 20110126
    License: none (public domain)
+
+Верстка сайта с нуля в Figma
+   https://www.youtube.com/watch?v=k2WgWaByuL8&list=PL5_s7xdj2Vsw-bCx5nOZJMFIiHwRgok--&index=4
 */
+
+/* #region Reset styles start */
 
 html,
 body,
@@ -130,7 +135,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: '';
+  content: "";
   content: none;
 }
 
@@ -139,15 +144,15 @@ table {
   border-spacing: 0;
 }
 
-input[type=search]::-webkit-search-cancel-button,
-input[type=search]::-webkit-search-decoration,
-input[type=search]::-webkit-search-results-button,
-input[type=search]::-webkit-search-results-decoration {
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
   -webkit-appearance: none;
   -moz-appearance: none;
 }
 
-input[type=search] {
+input[type="search"] {
   -webkit-appearance: none;
   -moz-appearance: none;
   -webkit-box-sizing: content-box;
@@ -438,7 +443,6 @@ textarea {
   color: #222;
 }
 
-
 ::-moz-selection {
   background: #b3d4fc;
   text-shadow: none;
@@ -470,17 +474,21 @@ textarea {
   padding: 0.2em 0;
 }
 
+/* #endregion Reset styles end */
+
+/* #region Font settings start */
+
 /* Підключення шрифтів за допомогою google fonts helper */
 /* lato-regular - latin */
 @font-face {
   font-display: swap;
   /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Lato';
+  font-family: "Lato";
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/lato-v23-latin-regular.woff2') format('woff2'),
+  src: url("../fonts/lato-v23-latin-regular.woff2") format("woff2"),
     /* Chrome 36+, Opera 23+, Firefox 39+ */
-    url('../fonts/lato-v23-latin-regular.woff') format('woff');
+      url("../fonts/lato-v23-latin-regular.woff") format("woff");
   /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
@@ -488,12 +496,12 @@ textarea {
 @font-face {
   font-display: swap;
   /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Lato';
+  font-family: "Lato";
   font-style: normal;
   font-weight: 700;
-  src: url('../fonts/lato-v23-latin-700.woff2') format('woff2'),
+  src: url("../fonts/lato-v23-latin-700.woff2") format("woff2"),
     /* Chrome 36+, Opera 23+, Firefox 39+ */
-    url('../fonts/lato-v23-latin-700.woff') format('woff');
+      url("../fonts/lato-v23-latin-700.woff") format("woff");
   /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
@@ -501,14 +509,16 @@ textarea {
 @font-face {
   font-display: swap;
   /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Lato';
+  font-family: "Lato";
   font-style: normal;
   font-weight: 900;
-  src: url('../fonts/lato-v23-latin-900.woff2') format('woff2'),
+  src: url("../fonts/lato-v23-latin-900.woff2") format("woff2"),
     /* Chrome 36+, Opera 23+, Firefox 39+ */
-    url('../fonts/lato-v23-latin-900.woff') format('woff');
+      url("../fonts/lato-v23-latin-900.woff") format("woff");
   /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+
+/* #endregion Font setting end */
 
 /* Правильний сросіб підключення box-sizing:border-box який не позначається на продуктивності. box-sizing: це модуль розрахунку розміру блоку*/
 html {
@@ -523,7 +533,7 @@ html {
 
 /* Базові стилі для body створюються для того, щоб від нього можна було успадкувати всім іншим елементам якісь певні стилі (зазвичай це шрифт) */
 body {
-  font-family: 'Lato', Verdana, sans-serif;
+  font-family: "Lato", Verdana, sans-serif;
   font-style: normal;
   font-size: 16px;
   line-height: 1.2;
@@ -536,8 +546,6 @@ img {
   max-width: 100%;
   height: auto;
 }
-
-
 
 /* Блок для обмеження по ширині (для контенту) */
 .wrapper {
@@ -562,16 +570,16 @@ img {
 
 .section-title::after {
   display: block;
-  content: '';
+  content: "";
   width: 253px;
   height: 3px;
-  background-color: #006DFE;
+  background-color: #006dfe;
   position: absolute;
   bottom: 0;
   left: 0;
 }
 
-/* Header styles start */
+/* #region Header styles start */
 
 .header {
   /* Щоб зафіксувати любий елемент всередині екрану (в області перегляду) + координати як ми фіксуємо top/left */
@@ -579,13 +587,13 @@ img {
   top: 0;
   left: 0;
   width: 100%;
-  transition: all .3s linear;
+  transition: all 0.3s linear;
   padding-bottom: 20px;
   z-index: 999;
 }
 
 .header_active {
-  background: #0E1D28;
+  background: #0e1d28;
 }
 
 /* Тепер header не бере участі у загальному потоці елементів */
@@ -626,12 +634,12 @@ img {
 .header__link:hover,
 .header__link:active,
 .header__link:focus {
-  opacity: .75;
+  opacity: 0.75;
 }
 
-/* Header styles end */
+/* #endregion Header styles end */
 
-/* Intro styles start */
+/* #region Intro styles start */
 
 .intro {
   min-height: 100vh;
@@ -646,7 +654,7 @@ img {
   font-weight: 500;
   font-size: 50px;
   line-height: 60px;
-  color: #FFFFFF;
+  color: #ffffff;
   margin-bottom: 22px;
 }
 
@@ -655,7 +663,7 @@ img {
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: #FFFFFF;
+  color: #ffffff;
   margin-bottom: 59px;
 }
 
@@ -669,20 +677,20 @@ img {
   background: transparent url(../img/svg/circle-ico.svg) no-repeat left 6px;
   background-size: 20px;
   border: 0;
-  border-bottom: 2px solid #BFC0C5;
+  border-bottom: 2px solid #bfc0c5;
   margin-right: 60px;
   padding-left: 43px;
   padding-bottom: 22px;
   font-weight: 500;
   font-size: 18px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .search-form__field::placeholder {
   padding-bottom: 22px;
   font-weight: 500;
   font-size: 18px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .search-form__submit {
@@ -690,8 +698,8 @@ img {
   text-transform: uppercase;
   font-weight: 500;
   font-size: 24px;
-  color: #FFFFFF;
-  background: #1B7DFF;
+  color: #ffffff;
+  background: #1b7dff;
   border: 0;
 }
 
@@ -701,18 +709,18 @@ img {
   background-color: #0e66da;
 }
 
-/* Intro styles end */
+/* #endregion Intro styles end */
 
-/* Benefits styles start */
+/* #region Benefits styles start */
 .benefits__wrap {
   max-width: 1262px;
   margin: 0 auto;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   box-shadow: 0px 2px 20px rgba(21, 24, 36, 0.15993);
   position: relative;
 }
 
-/* Позиціонуємо наш тайтл абсолютно. Для цього необхідно вкзати для батьківського елемента position relative */
+/* Позиціонуємо наш тайтл абсолютно. Для цього необхідно вказати для батьківського елемента position relative */
 /* Змістимо елемент вгору по осі У на 100% його власної висоти transform: translateY(-100%);*/
 .benefits {
   margin-bottom: 131px;
@@ -736,7 +744,6 @@ img {
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 55px;
   padding: 0 100px;
-
 }
 
 /* Задамо ширину для benefit__card явним образом. grid-column: span 1; таким чином наші карточки будуть займати по одній колонці*/
@@ -775,10 +782,10 @@ img {
   padding-right: 59px;
   font-size: 16px;
   line-height: 24px;
-  color: #006DFE;
+  color: #006dfe;
   text-decoration: none;
   background: url("../img/svg/arrow-right-ico.svg") no-repeat 95% center;
-  transition: all .2s;
+  transition: all 0.2s;
 }
 
 .benefits__card-more:hover,
@@ -786,11 +793,9 @@ img {
   background: url("../img/svg/arrow-right-ico.svg") no-repeat right center;
 }
 
-/* Benefits styles end */
+/* #endregion Benefits styles end */
 
-
-/* Places styles start */
-
+/* #region Places styles start */
 .places {
   margin-bottom: 131px;
 }
@@ -809,20 +814,18 @@ img {
   margin-right: 15px;
 }
 
-
 .places__view-all {
   font-size: 16px;
   padding-right: 59px;
-  color: #006DFE;
+  color: #006dfe;
   text-decoration: none;
   background: url("../img/svg/arrow-right-ico.svg") no-repeat right center;
-  transition: all .2s;
+  transition: all 0.2s;
 }
 
 .places__view-all:hover,
 .places__view-all:focus {
-  opacity: .65;
-
+  opacity: 0.65;
 }
 
 /* Для обгортки Зробимо grid контейнер і розділити його на якусь к-сть колонок (в даному випадку к-сть колонок має ділится і на 2 і на 3) */
@@ -841,7 +844,7 @@ img {
 
 .places__card::after {
   display: block;
-  content: '';
+  content: "";
   width: 100%;
   height: 100%;
   background-color: rgba(21, 24, 36, 0.4);
@@ -854,13 +857,12 @@ img {
 /* ефект hover змінувати розмір наших картинок */
 .places__card:hover .places__card-pic {
   transform: scale(1.05);
-
 }
 
 .places__card-title {
   font-size: 50px;
   line-height: 60px;
-  color: #FFFFFF;
+  color: #ffffff;
   position: absolute;
   bottom: 27px;
   left: 29px;
@@ -879,7 +881,7 @@ img {
 /* Для картинки жорстко кодуємо висоту height , а властивість object-fit:  каже як зоброження буде масштабуватись всередині контейнера*/
 .places__card-pic {
   width: 100%;
-  transition: all .15s;
+  transition: all 0.15s;
 }
 
 .places__card-pic--size--lg {
@@ -901,8 +903,7 @@ img {
   height: 100%;
   z-index: 4;
 }
-
-/* Places styles end */
+/* #endregion Places styles end */
 
 /* Tours styles start */
 
@@ -938,17 +939,16 @@ img {
 .tour__more {
   padding-right: 59px;
   font-size: 16px;
-  color: #006DFE;
+  color: #006dfe;
   text-decoration: none;
   background: url("../img/svg/arrow-right-ico.svg") no-repeat right center;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 
 .tour__more:hover,
 .tour__more:focus {
-  opacity: .65;
+  opacity: 0.65;
 }
-
 
 /* Tours styles end */
 
@@ -971,7 +971,6 @@ img {
 .top__card {
   display: flex;
   flex-direction: column;
-
 }
 
 /* Тому, що відносно цього блоку ми будемо позиціонувати блок зі статами */
@@ -1007,7 +1006,7 @@ img {
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
-  color: #FFFFFF;
+  color: #ffffff;
   padding-right: 20px;
   background: url("../img/svg/heart-ico.svg") no-repeat right;
   margin-right: 14px;
@@ -1017,7 +1016,7 @@ img {
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
-  color: #FFFFFF;
+  color: #ffffff;
   padding-right: 23px;
   background: url("../img/svg/comment-ico.svg") no-repeat right;
 }
@@ -1034,8 +1033,8 @@ img {
   width: 118px;
   padding: 12px 19px;
   text-decoration: none;
-  background: #1B7DFF;
-  color: #FFFFFF;
+  background: #1b7dff;
+  color: #ffffff;
   text-transform: uppercase;
   font-size: 16px;
   /* Лінк прибється до нижньої частини картки, тому що зверху margin буде розраховуватися автоматично. І в flex він розраховується так, що він прибиває до ПРОТИЛЕЖНОЇ сторони даний елемент */
@@ -1052,7 +1051,7 @@ img {
 
 /* Videos styles start */
 .videos {
-  width: 100%
+  width: 100%;
 }
 
 .videos__wrapper {
@@ -1076,11 +1075,10 @@ img {
 
 /* Videos styles end */
 
-/*Footer styles start */
+/* #region Footer styles */
 .footer {
-  background-color: #0E1D28;
+  background-color: #0e1d28;
   padding: 119px 0;
-
 }
 
 .footer__item {
@@ -1099,8 +1097,6 @@ img {
   width: 50%;
 }
 
-
-
 .footer__menu-item {
   margin-bottom: 4px;
 }
@@ -1113,15 +1109,14 @@ img {
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
-  color: #FFFFFF;
+  color: #ffffff;
   margin-bottom: 3px;
 }
 
 .footer__menu-link {
   text-decoration: none;
   line-height: 24px;
-  color: #FFFFFF;
-
+  color: #ffffff;
 }
 
 .footer__menu-link:hover,
@@ -1130,5 +1125,4 @@ img {
   opacity: 0.75;
 }
 
-
-/* Footer styles end */
+/* #endregion Footer styles */
