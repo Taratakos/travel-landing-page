@@ -559,7 +559,7 @@ img {
   margin: 0 auto;
 }
 
-/* створимо нижнє підкреслення за допомогою псевдоелемента. Для того щоб його позиціонувати абсолютно робимо position relative на його батьківському елементі */
+/* створимо нижнє підкреслення за допомогою псевдо-елемента. Для того щоб його позиціонувати абсолютно робимо position relative на його батьківському елементі */
 .section-title {
   font-weight: 500;
   font-size: 35px;
@@ -643,7 +643,7 @@ img {
 
 .intro {
   min-height: 100vh;
-  background: url(/img/intro-bg.jpg) no-repeat center;
+  background: url(../img/intro-bg.jpg) no-repeat center;
   background-size: cover;
   padding-top: 263px;
   padding-bottom: 223px;
@@ -905,7 +905,7 @@ img {
 }
 /* #endregion Places styles end */
 
-/* Tours styles start */
+/* #region Tours styles start */
 
 .tours {
   margin-bottom: 139px;
@@ -950,9 +950,9 @@ img {
   opacity: 0.65;
 }
 
-/* Tours styles end */
+/* #endregion Tours styles end */
 
-/* Top places styles start */
+/* #region Top places styles start */
 .top {
   margin-bottom: 86px;
 }
@@ -1047,9 +1047,9 @@ img {
   background-color: #0e66da;
 }
 
-/* Top places styles end */
+/* #endregion Top places styles end */
 
-/* Videos styles start */
+/* #region Videos styles start */
 .videos {
   width: 100%;
 }
@@ -1073,7 +1073,7 @@ img {
   height: 100%;
 }
 
-/* Videos styles end */
+/* #endregion Videos styles end */
 
 /* #region Footer styles */
 .footer {
